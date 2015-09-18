@@ -53,3 +53,6 @@ Enjoy it!
 停止：`/etc/init.d/shadowsocks stop`  
 重启：`/etc/init.d/shadowsocks restart`  
 查看状态：`/etc/init.d/shadowsocks status`  
+
+参考链接：  
+https://github.com/madeye/shadowsocks-libev  
