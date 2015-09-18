@@ -6,7 +6,6 @@
 
 **关于本脚本：**  
 一键安装 Python 版 shadowsocks 的最新版，同时安装了 Python 包管理工具 pip。  
-友情提示：如果你有问题，请先参考这篇《Shadowsocks Troubleshooting》后再问。  
 
 
 **默认配置：**   
@@ -46,7 +45,7 @@ Enjoy it!
 `
 
 **单用户配置文件 Sample**   
-配置文件路径：vi /etc/shadowsocks.json  
+配置文件路径：`vi /etc/shadowsocks.json  `
 ```
 {  
     "server":"0.0.0.0",  
@@ -61,7 +60,7 @@ Enjoy it!
 ```
 
 **多用户多端口配置文件 Sample**  
-配置文件路径：vi /etc/shadowsocks.json  
+配置文件路径：`vi /etc/shadowsocks.json  `
 ```
 {  
     "server":"0.0.0.0",
@@ -81,10 +80,10 @@ Enjoy it!
 ```
 
 **使用命令（2015 年 08 月 28 日修正）：**
-启动：/etc/init.d/shadowsocks start
-停止：/etc/init.d/shadowsocks stop
-重启：/etc/init.d/shadowsocks restart
-状态：/etc/init.d/shadowsocks status
+启动：`/etc/init.d/shadowsocks start`
+停止：`/etc/init.d/shadowsocks stop`
+重启：`/etc/init.d/shadowsocks restart`
+状态：`/etc/init.d/shadowsocks status`
 
-参考链接：
-http://teddysun.com/339.html
+参考链接：  
+http://teddysun.com/339.html   
