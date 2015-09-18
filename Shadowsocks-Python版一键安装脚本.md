@@ -1,13 +1,13 @@
-**本脚本适用环境：**
+**本脚本适用环境：**  
 系统支持：CentOS 6，7，Debian，Ubuntu  
 内存要求：≥128M  
-日期：2015年08月28日
+日期：2015年08月28日  
 
 
 
 
 
-**关于本脚本：**
+>关于本脚本：
 一键安装 Python 版 shadowsocks 的最新版，同时安装了 Python 包管理工具 pip。
 友情提示：如果你有问题，请先参考这篇《Shadowsocks Troubleshooting》后再问。
 
