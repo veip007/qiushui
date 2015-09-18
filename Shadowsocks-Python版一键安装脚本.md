@@ -20,15 +20,16 @@ http://sourceforge.net/projects/shadowsocksgui/files/dist/
 
 **使用方法：**    
 使用root用户登录，运行以下命令：   
->
+```
 wget --no-check-certificate    
 https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/shadowsocks.sh   
 chmod +x shadowsocks.sh   
 ./shadowsocks.sh 2>&1 | tee shadowsocks.log
-
+```
 
 **安装完成后，脚本提示如下：**  
-`Congratulations, shadowsocks install completed!   
+```
+Congratulations, shadowsocks install completed!   
 Your Server IP:your_server_ip   
 Your Server Port:your_server_port   
 Your Password:your_password   
@@ -37,8 +38,8 @@ Your Local Port:1080
 Your Encryption Method:aes-256-cfb   
 
 Welcome to visit:http://teddysun.com/342.html   
-Enjoy it!`   
-
+Enjoy it! 
+```
 **卸载方法：**   
 使用root用户登录，运行以下命令：  
 `./shadowsocks.sh uninstall  
@@ -46,7 +47,8 @@ Enjoy it!`
 
 **单用户配置文件 Sample**   
 配置文件路径：vi /etc/shadowsocks.json  
-`{  
+```
+{  
     "server":"0.0.0.0",  
     "server_port":8989,   
     "local_address":"127.0.0.1",  
@@ -55,11 +57,13 @@ Enjoy it!`
     "timeout":300,  
     "method":"aes-256-cfb",  
     "fast_open": false  
-}`  
+}
+```
 
 **多用户多端口配置文件 Sample**  
 配置文件路径：vi /etc/shadowsocks.json  
-`{  
+```
+{  
     "server":"0.0.0.0",
     "local_address":"127.0.0.1",
     "local_port":1080,
@@ -73,7 +77,8 @@ Enjoy it!`
     "timeout":300,
     "method":"aes-256-cfb",
     "fast_open": false
-}`
+}
+```
 
 **使用命令（2015 年 08 月 28 日修正）：**
 启动：/etc/init.d/shadowsocks start
