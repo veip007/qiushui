@@ -20,9 +20,8 @@ http://sourceforge.net/projects/shadowsocksgui/files/dist/
 **使用方法：**    
 使用root用户登录，运行以下命令：   
 ```
-wget --no-check-certificate    
-https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/shadowsocks.sh   
-chmod +x shadowsocks.sh   
+wget --no-check-certificate https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/shadowsocks.sh
+chmod +x shadowsocks.sh
 ./shadowsocks.sh 2>&1 | tee shadowsocks.log
 ```
 
