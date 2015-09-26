@@ -96,6 +96,7 @@ Debian/Ubuntu
 apt-get install python-dev
 apt-get install libevent-dev
 apt-get install python-setuptools
+apt-get install python-gevent
 easy_install greenlet
 easy_install gevent
 ```
