@@ -66,3 +66,5 @@ chmod +x build.sh
 nohup /var/net_speeder eth0 "ip"
 echo "nohup /var/net_speeder eth0 "ip" >/dev/null 2>&1 &" >> /etc/rc.local
 ```
+
+[参考](http://www.cmsky.com/vps-net-speeder/)
