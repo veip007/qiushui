@@ -138,6 +138,10 @@ ldconfig
 `vi /etc/shadowsocks.json`
 "method":"aes-256-cfb"改成"method":"chacha20",重启SS即可`/etc/init.d/shadowsocks restart`    
 
+
+
+***
+
 ### 网络层面
 此外，选择合适的端口也能优化梯子的速度，广大SS用户的实践经验表明，检查站（GFW）存在一种机制来降低自身的运算压力，即常用的协议端口（如http，smtp，ssh，https，ftp等）的检查较少，所以建议SS绑定这些常用的端口（如：21，22，25，80，443），速度也会有显著提升。  
 如果你还要给小伙伴爬，那我建议开启多个端口而不是共用，这样网络会更加顺畅。  
@@ -148,3 +152,9 @@ ldconfig
 `-A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT`  
 重启防火墙iptables：  
 `service iptables restart`  
+
+
+***
+参考
+https://www.zxc.so/shadowsocks-ladder.html
+https://teddysun.com/339.html
