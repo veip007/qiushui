@@ -53,6 +53,64 @@ net.ipv4.tcp_congestion_control = hybla
   
 对于低延迟的网络（如日本，香港等），可以使用`htcp`，可以非常显著的提高速度，首先使用`modprobe tcp_htcp`开启，再将`net.ipv4.tcp_congestion_control = hybla`改为`net.ipv4.tcp_congestion_control = htcp`，建议EC2日本用户使用这个算法。
 
+  
+**开启TCP Fast Open**  
+这个需要服务器和客户端都是Linux 3.7+的内核，一般Linux的服务器发行版只有debian jessie有3.7+的，客户端用Linux更是珍稀动物，所以这个不多说，如果你的服务器端和客户端都是Linux 3.7+的内核，那就在服务端和客户端的`/etc/sysctl.conf`文件中再加上一行。    
+```
+# turn on TCP Fast Open on both client and server side
+net.ipv4.tcp_fastopen = 3
+```
+然后把`vi /etc/shadowsocks.json`配置文件中"fast_open": false改为"fast_open": true。这样速度也将会有非常显著的提升。
+***
+### 加密层面
+**安装M2Crypto**  
+
+这个可以提高SS的加密速度，安装办法：  
+Debian/Ubuntu  
+`apt-get install python-m2crypto`  
+安装之后重启SS，速度将会有一定的提升  
+
+
+CentOS  
+先安装依赖包：  
+`yum install -y openssl-devel gcc swig python-devel autoconf libtool`
+安装setuptools：  
+```
+wget --no-check-certificate https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/ez_setup.py
+python ez_setup.py install
+```
+再通过pip安装M2Crypto：  
+`pip install M2Crypto`
 
 ***
+
+**安装 gevent**  
+安装 gevent可以提高 Shadowsocks 的性能。  
+Debian/Ubuntu  
+```
+apt-get install python-dev
+apt-get install libevent-dev
+apt-get install python-setuptools
+easy_install greenlet
+easy_install gevent
+```
+
+CentOS  
+```
+yum install -y libevent
+pip install greenlet
+pip install gevent
+```
+
+**使用CHACHA20加密算法**  
+首先，安装libsodium，让系统支持chacha20算法。  
+```
+apt-get install build-essential
+wget https://github.com/jedisct1/libsodium/releases/download/1.0.3/libsodium-1.0.3.tar.gz
+tar xf libsodium-1.0.3.tar.gz && cd libsodium-1.0.3
+./configure && make && make install
+ldconfig
+```
+
+
 此外，选择合适的端口也能优化梯子的速度，广大SS用户的实践经验表明，检查站（GFW）存在一种机制来降低自身的运算压力，即常用的协议端口（如http，smtp，ssh，https，ftp等）的检查较少，所以建议SS绑定这些常用的端口（如：21，22，25，80，443），速度也会有显著提升。
