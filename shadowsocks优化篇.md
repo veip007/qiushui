@@ -46,7 +46,8 @@ net.ipv4.tcp_mtu_probing = 1
 # for high-latency network
 net.ipv4.tcp_congestion_control = hybla
 ```
-
+保存生效  
+`sysctl -p`  
 其中最后的hybla是为高延迟网络（如美国，欧洲）准备的算法，需要内核支持，测试内核是否支持，在终端输入：  
 `sysctl net.ipv4.tcp_available_congestion_control`  
 如果结果中有hybla，则证明你的内核已开启hybla，如果没有hybla，可以用命令`modprobe tcp_hybla`开启。
