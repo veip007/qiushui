@@ -39,3 +39,30 @@ killall net_speeder
 ```
 nohup /root/net_speeder venet0 "ip" >/dev/null 2>&1 &
 ```
+
+***
+
+注：CentOS 下安装需要使用额外的 EPEL源 较麻烦，Github 上有教程，大家可以参看  
+1. 安装运行及编译的依赖库   
+``` 
+apt-get install libnet1
+apt-get install libpcap0.8
+apt-get install libnet1-dev
+apt-get install libpcap0.8-dev
+```
+2. 下载源码到 服务器  
+```
+cd /var
+wget https://github.com/snooda/net-speeder/raw/master/net_speeder.c
+wget https://github.com/snooda/net-speeder/raw/master/build.s
+```
+3. 编译  
+```
+chmod +x build.sh
+./build.sh -DCOOKED
+```
+4. 运行并加入开机启动  
+```
+nohup /var/net_speeder eth0 "ip"
+echo "nohup /var/net_speeder eth0 "ip" >/dev/null 2>&1 &" >> /etc/rc.local
+```
