@@ -56,7 +56,66 @@ net.ipv4.tcp_congestion_control = hybla
 
  
 ***
+**TCP优化**  
+1.修改文件句柄数限制  
+
+修改`/etc/security/limits.conf`文件，加入  
+```
+* soft nofile 51200
+* hard nofile 51200
+```
+修改`/etc/pam.d/common-session`文件，加入  
+`session required pam_limits.so`  
+
+修改`/etc/profile`文件，加入  
+`ulimit -SHn 51200`  
+然后重启服务器执行`ulimit -n`，查询返回51200即可。  
  
+***
+
+**锐速**  
+锐速是TCP底层加速软件，官方推出永久免费版本，20Mbps宽带、3000加速连接。实测安装以后效果很不错。需要使用的话先到锐速官网注册帐号， 并确认内核版本是锐速支持的版本。  
+
+1.安装  
+```
+wget http://dl.serverspeeder.com/d/ls/serverSpeederInstaller.tar.gz
+tar xzvf serverSpeederInstaller.tar.gz
+bash serverSpeederInstaller.sh
+```
+
+设置  
+```
+Enter your accelerated interface(s) [eth0]: eth0
+Enter your outbound bandwidth [1000000 kbps]: 1000000
+Enter your inbound bandwidth [1000000 kbps]: 1000000
+Configure shortRtt-bypass [0 ms]: 0
+Auto load ServerSpeeder on linux start-up? [n]:y #是否开机自启
+Run ServerSpeeder now? [y]:y #是否现在启动
+```
+执行`lsmod`，看到有`appex0`模块即说明锐速已正常安装并启动。   
+
+至此，安装就结束了，但还有后续配置。  
+修改`/serverspeeder/etc/config`文件的几个参数以使锐速更好的工作  
+```
+advinacc="1" #高级入向加速开关；设为 1 表示开启，设为 0 表示关闭；开启此功能可以得到更好的流入方向流量加速效果；
+maxmode="1" #最大传输模式；设为 1 表示开启；设为 0 表示关闭；开启后会进一步提高加速效果，但是可能会降低有效数据率。
+rsc="1" #网卡接收端合并开关；设为 1 表示开启，设为 0 表示关闭；在有些较新的网卡驱动中，带有 RSC 算法的，需要打开该功能。
+```
+
+重读配置以使配置生效  
+`/serverspeeder/bin/serverSpeeder.sh reload`  
+
+3.其他  
+查看锐速当前状态  
+`/serverspeeder/bin/serverSpeeder.sh stats`  
+查看所有命令  
+`/serverspeeder/bin/serverSpeeder.sh help`  
+重启锐速  
+`service serverSpeeder restart`  
+
+***
+
+
 **开启TCP Fast Open**  
 这个需要服务器和客户端都是Linux 3.7+的内核，一般Linux的服务器发行版只有debian jessie有3.7+的，客户端用Linux更是珍稀动物，所以这个不多说，如果你的服务器端和客户端都是Linux 3.7+的内核，那就在服务端和客户端的`/etc/sysctl.conf`文件中再加上一行。    
 ```
