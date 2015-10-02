@@ -106,12 +106,15 @@ rsc="1" #网卡接收端合并开关；设为 1 表示开启，设为 0 表示�
 `/serverspeeder/bin/serverSpeeder.sh reload`  
 
 3.其他  
-查看锐速当前状态  
-`/serverspeeder/bin/serverSpeeder.sh stats`  
-查看所有命令  
-`/serverspeeder/bin/serverSpeeder.sh help`  
-重启锐速  
-`service serverSpeeder restart`  
+查看锐速当前状态`/serverspeeder/bin/serverSpeeder.sh stats`  
+
+查看所有命令`/serverspeeder/bin/serverSpeeder.sh help`  
+
+停止`/serverspeeder/bin/serverSpeeder.sh stop`  
+
+启动`/serverspeeder/bin/serverSpeeder.sh start`  
+
+重启锐速`service serverSpeeder restart`  
 
 ***
 
