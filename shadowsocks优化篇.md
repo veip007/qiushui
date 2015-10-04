@@ -1,7 +1,7 @@
-### 系统层面
+### 1. 系统层面
 基于kvm架构vps的优化  
 这方面SS给出了非常详尽的优化指南，主要有：优化内核参数，开启TCP Fast Open  
-**优化内核参数**  
+**1.1优化内核参数**  
 编辑```vi /etc/sysctl.conf```   
 复制进去   
 ```
@@ -56,7 +56,7 @@ net.ipv4.tcp_congestion_control = hybla
 
  
 ***
-**TCP优化**  
+**1.2TCP优化**  
 1.修改文件句柄数限制  
 
 修改`/etc/security/limits.conf`文件，加入  
@@ -73,7 +73,7 @@ net.ipv4.tcp_congestion_control = hybla
  
 ***
 
-**锐速**  
+**1.3锐速**  
 锐速是TCP底层加速软件，官方推出永久免费版本，20Mbps宽带、3000加速连接。实测安装以后效果很不错。需要使用的话先到锐速官网注册帐号， 并确认[内核版本](http://dl.serverspeeder.com/ls.do?m=availables)是否支持锐速的版本。  
 
 1.安装  
@@ -119,7 +119,7 @@ rsc="1" #网卡接收端合并开关；设为 1 表示开启，设为 0 表示�
 ***
 
 
-**开启TCP Fast Open**  
+**1.4开启TCP Fast Open**  
 这个需要服务器和客户端都是Linux 3.7+的内核，一般Linux的服务器发行版只有debian jessie有3.7+的，客户端用Linux更是珍稀动物，所以这个不多说，如果你的服务器端和客户端都是Linux 3.7+的内核，那就在服务端和客户端的`/etc/sysctl.conf`文件中再加上一行。    
 ```
 # turn on TCP Fast Open on both client and server side
@@ -131,8 +131,8 @@ net.ipv4.tcp_fastopen = 3
 ***
 
 
-### 加密层面
-**安装M2Crypto**  
+### 2.加密层面
+**2.1安装M2Crypto**  
 这个可以提高SS的加密速度，安装办法：  
 Debian/Ubuntu  
 `apt-get install python-m2crypto`  
@@ -149,10 +149,10 @@ python ez_setup.py install
 ```
 再通过pip安装M2Crypto：  
 `pip install M2Crypto`
-
+或者`pip install M2Crypto --upgrade`  
 ***
 
-**安装 gevent**  
+**2.2安装 gevent**  
 安装 gevent可以提高 Shadowsocks 的性能。  
 Debian/Ubuntu  
 ```
@@ -173,7 +173,7 @@ pip install gevent
 
 ***
 
-**使用CHACHA20加密算法**  
+**2.3使用CHACHA20加密算法**  
 首先，安装libsodium，让系统支持chacha20算法。  
 Debian/Ubuntu   
 ```
@@ -206,11 +206,11 @@ ldconfig
 
 ***
 
-### 网络层面
+### 3.网络层面
 此外，选择合适的端口也能优化梯子的速度，广大SS用户的实践经验表明，检查站（GFW）存在一种机制来降低自身的运算压力，即常用的协议端口（如http，smtp，ssh，https，ftp等）的检查较少，所以建议SS绑定这些常用的端口（如：21，22，25，80，443），速度也会有显著提升。  
 如果你还要给小伙伴爬，那我建议开启多个端口而不是共用，这样网络会更加顺畅。  
 
-**防火墙设置（如有）**  
+**3.1防火墙设置（如有）**  
 编辑防火墙配置文件`vi /etc/sysconfig/iptables`，将服务器端口（server_port）放行。   
 新增一条防火墙规则：  
 `-A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT`  
