@@ -63,8 +63,7 @@ chmod +x build.sh
 ```
 4. 运行并加入开机启动  
 ```
-nohup /var/net_speeder eth0 "ip"
-echo "nohup /var/net_speeder eth0 "ip" >/dev/null 2>&1 &" >> /etc/rc.local
+echo "nohup /usr/local/net_speeder/net_speeder venet0 "ip" >/dev/null 2>&1 &" >> /etc/rc.local
 ```
 
 [参考](http://www.cmsky.com/vps-net-speeder/)
