@@ -2,9 +2,10 @@
 在ubuntu，Debian 或 Linux Mint上安装fail2ban：  
 `apt-get install fail2ban`
 
-CentOS 6_64  
+CentOS 6 
 ```
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+32位 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+64位 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 yum install fail2ban
 ```
 CentOS 7_64  
