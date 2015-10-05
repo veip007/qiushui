@@ -47,6 +47,6 @@ DAEMON_PURGE = 1h #当以后台方式运行时，清除机制在 HOSTS_DENY 中�
 查看已拦截的IP`cat /etc/hosts.deny`  
 查看拦截记录`cat /etc/hosts.deny | wc -l`  
 重启服务`service denyhosts restart`
-
+写入自启`echo "service denyhosts restart" >> /etc/rc.local`
 
 [参考](http://www.lovelucy.info/vps-anti-ssh-login-attempts-attack.html)
