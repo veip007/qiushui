@@ -98,6 +98,7 @@ vi /etc/shadowsocks.json
 ```
 ssserver -c /etc/shadowsocks.json -d start
 ssserver -c /etc/shadowsocks.json -d stop
+ssserver -c /etc/shadowsocks.json -d restart
 ```
 参考链接：  
 http://teddysun.com/339.html   
