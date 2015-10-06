@@ -115,5 +115,28 @@ sudo lsof -i -n -P | egrep -c ':1080.+ESTABLISHED'
 sudo lsof -i -n -P | egrep ':1080.+ESTABLISHED'
 ```
 
+**利用脚本查看连接列表，并添加定时任务**   
+新建目录`mkdir test`里添加以下脚本  
+```
+#!/bin/bash
+#
+# File: port-ip-monitor.sh
+#
+# Created: Wednesday, August 27 2014 by Hua Liang[Stupid ET] <et@everet.org>
+#
+
+filename="port-ip-monitor.log"
+regex="8888"  # monitor 你的端口
+
+date +"[%Y-%m-%d %H:%M:%S]" >> $filename
+netstat -anp | egrep $regex | grep -E "tcp.*ESTABLISHED" | awk '{print $4, $5}' | cut -d: -f2 | sort -u >> $filename
+```
+编辑`crontab  -e`里增加`* * * * * (cd /test/ && bash port-ip-monitor.sh)`  
+启动服务`service crond start`  
+然后我们在/test/里就看到port-ip-monitor.log了  
+查看日志`less /test/port-ip-monitor.log`  
+
+
 参考链接：  
 http://teddysun.com/339.html   
+http://everet.org/shadowsocks.html
