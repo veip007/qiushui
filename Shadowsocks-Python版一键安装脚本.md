@@ -92,6 +92,8 @@ vi /etc/shadowsocks.json
 停止：```/etc/init.d/shadowsocks stop```  
 重启：```/etc/init.d/shadowsocks restart```  
 状态：```/etc/init.d/shadowsocks status```  
+写入自启`echo "ssserver -c /etc/shadowsocks.json -d restart" >> /etc/rc.local`  
+查看日志`less /var/log/shadowsocks.log`  
 
 
 说明： 从 Shadowsocks 2.6 开始，你可以直接在后台运行 Shadowsocks，无需 Supervisor 。 这样省掉了 Supervisor 进程占用的内存。  
@@ -99,8 +101,19 @@ vi /etc/shadowsocks.json
 ssserver -c /etc/shadowsocks.json -d start
 ssserver -c /etc/shadowsocks.json -d stop
 ssserver -c /etc/shadowsocks.json -d restart
-echo "ssserver -c /etc/shadowsocks.json -d restart" >> /etc/rc.local #写入自启
-less /var/log/shadowsocks.log #检查日志  
 ```
+
+**查看连接的人数**   
+```
+Ubuntu:apt-get install lsof -y
+CentOs:yum install lsof -y
+
+# 假设服务器端口1080, 查看连接数
+sudo lsof -i -n -P | egrep -c ':1080.+ESTABLISHED'
+
+# 查看连接列表
+sudo lsof -i -n -P | egrep ':1080.+ESTABLISHED'
+```
+
 参考链接：  
 http://teddysun.com/339.html   
