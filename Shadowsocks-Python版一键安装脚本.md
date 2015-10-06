@@ -100,6 +100,7 @@ ssserver -c /etc/shadowsocks.json -d start
 ssserver -c /etc/shadowsocks.json -d stop
 ssserver -c /etc/shadowsocks.json -d restart
 echo "ssserver -c /etc/shadowsocks.json -d restart" >> /etc/rc.local #写入自启
+less /var/log/shadowsocks.log #检查日志  
 ```
 参考链接：  
 http://teddysun.com/339.html   
