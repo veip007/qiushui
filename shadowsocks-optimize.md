@@ -71,7 +71,16 @@ net.ipv4.tcp_congestion_control = hybla
 修改`vi /etc/profile`文件，加入  
 `ulimit -SHn 51200`  
 然后重启服务器执行`ulimit -n`，查询返回51200即可。  
- 
+  
+```
+sysctl.conf报错解决方法
+修复modprobe的：
+rm -f /sbin/modprobe 
+ln -s /bin/true /sbin/modprobe
+修复sysctl的：
+rm -f /sbin/sysctl 
+ln -s /bin/true /sbin/sysctl
+```
 ***
 
 ####1.3 锐速
