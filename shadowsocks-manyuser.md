@@ -29,6 +29,11 @@ You need to restart the server with the following command:
 `http://VPS_IP_address/phpmyadmin`
 
 
+***
+
 THX  
-https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-a-centos-6-4-vps  
-http://www.cnblogs.com/tippoint/archive/2013/11/20/3434035.html
+* [How To Install and Secure phpMyAdmin on a CentOS 6.4 VPS](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-a-centos-6-4-vps)  
+* [centos安装phpmyadmin](http://www.cnblogs.com/tippoint/archive/2013/11/20/3434035.html)  
+* [CENTOS下SHADOWSOCKS多用户后端MANYUSER+前端SSPANEL搭建过程](http://www.cmsky.com/shadowsocks-manyuser-sspanel/)
+* [详细说下shadowsocks服务端的部署](http://www.bigf.info/makediess-manyuser-config-diy)
+* CENTOS下SHADOWSOCKS多用户后端MANYUSER+前端SSPANEL搭建过程  
