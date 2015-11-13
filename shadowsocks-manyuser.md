@@ -125,8 +125,8 @@ autostart=true
 autorestart=true
 user=nobody  #如果端口 < 1024，把 user=nobody 改成 user=root。
 ```
-在 `/etc/default/supervisor` 最后加一行：  
-`ulimit -n 51200`  
+在 `/etc/default/supervisor` 最后加一行：`ulimit -n 51200`  
+  
 执行  
 ```
 service supervisor start
@@ -146,10 +146,50 @@ supervisorctl restart shadowsocks
 启动目标程序 supervisorctl start shadowsocks
 关闭所有程序 supervisorctl shutdown
 ```
+### 3. 安装shadowsocks多用户前端MakeDieSS
+项目地址：https://github.com/mengskysama/MakeDieSS  
+
+#### 3.1 安装
+```
+cd /var/www/html
+git clone https://github.com/mengskysama/MakeDieSS.git
+```  
+打开MakeDieSS目录，修改function.php  
+```
+<?php
+
+$COOKIEEXPTIME = 3600 * 24;
+$BASEURL = '192.168.1.215';	//用户管理面板的域名
+$mysql_host = '127.0.0.1';	//sql地址
+$mysql_user = 'sqlname';	//sql用户名
+$mysql_pass = 'sqlpassword';	//sql密码
+$mysql_db = 'shadowsocks';	//sql名
+$init_transfer = 1024 * 1024 * 1024;
+$arr_server = array(
+    array('uri' => 'http://mdss01.mengsky.net:80', 'key' => 'nicaicai', 'type' => 1)
+    //,
+    //array('uri'=>'http://mdss10.mengsky.net:80', 'key'=>'nicaicai', 'type'=>1)
+);
+
+```
+接着是panel.php，这里要修改服务器的地址、兑换临时流量大小的前端显示  
+![panel](https://pic.honeyhaw.com/images/panelumu.jpg)
+
+在api.php里找到如下图所示的地方，修改兑换临时流量的大小  
+![api](https://pic.honeyhaw.com/images/api.jpg)
+
+最后是reg.php里面修改邀请码,默认v2ex  
+最后将sql.sql导入到你新建的数据库中，你也可以在导入前先作适当的修改，参考下图
+
+
+
+
+***
 
 THX  
 * [How To Install and Secure phpMyAdmin on a CentOS 6.4 VPS](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-a-centos-6-4-vps)  
 * [centos安装phpmyadmin](http://www.cnblogs.com/tippoint/archive/2013/11/20/3434035.html)  
 * [CENTOS下SHADOWSOCKS多用户后端MANYUSER+前端SSPANEL搭建过程](http://www.cmsky.com/shadowsocks-manyuser-sspanel/)
 * [详细说下shadowsocks服务端的部署](http://www.bigf.info/makediess-manyuser-config-diy)
+* [用 Supervisor 运行 Shadowsocks](https://github.com/shadowsocks/shadowsocks/wiki/%E7%94%A8-Supervisor-%E8%BF%90%E8%A1%8C-Shadowsocks/9b73d02b379470f56d55aa01da7f7cd9b29f6d50)
 * CENTOS下SHADOWSOCKS多用户后端MANYUSER+前端SSPANEL搭建过程  
