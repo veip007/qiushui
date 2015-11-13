@@ -39,15 +39,19 @@ apt-get install python-pip python-m2crypto  #Debian / Ubuntu
 yum install m2crypto python-setuptools  #CentOS:
 easy_install pip
 ```
+
 #### 2.2 安装cymysql
 `pip install cymysql`  
+
 #### 2.3 安装shadowsocks-manyuser
 `git clone -b manyuser https://github.com/mengskysama/shadowsocks.git`  
 或者`git clone -b manyuser https://github.com/mengskysama/shadowsocks-rm.git`  
 如果提示没有安装git，则先安装git `yum -y install git`  
+
 #### 2.4 创建数据库shadowsocks
 登陆`http://VPS_IP_address/phpmyadmin`，第一步的时候已经创建用户  
 创建数据库shadowsocks（名称随意），然后将shadowsocks-manyuser文件夹中的shadowsocks.sql导入到你创建的数据库中。  
+
 #### 2.5 配置数据库连接
 cd /用户名/shadowsocks/shadowsocks 打开Config.py所在文件夹  
 编辑Config.py文件：vi Config.py， vi config.json 修改对应的端口、密码等等操作。如下格式  
@@ -76,10 +80,18 @@ MANAGE_PORT = 23333
     "method":"aes-256-cfb"
 }
 ```
+
 #### 2.6 开启服务
 `python server.py`  
-如返回显示为 db start server at port 50000  ...之类的就表示服务端已设置成功    
-如果放在后台运行则可以，`nohup python server.py & nohup` 用法可以百度，也可以用screen或者配置supervisor进程守护。
+如返回显示为 db start server at port 50000  ...之类的就表示服务端已设置成功   
+   
+如果放在后台运行则可以  
+```
+nohup python server.py > /var/log/shadowsocks.log 2>&1 &
+cat /var/log/shadowsocks.log
+```
+也可以用screen或者配置supervisor进程守护。  
+
 ##### 2.6.1 使用screen进程守护的方法
 ```
 screen -S shadowsocks
