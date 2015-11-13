@@ -66,14 +66,14 @@ MANAGE_PORT = 23333
 ```
 ```
 {
-    "server":"127.0.0.1",
+    "server":"VPS IP",
     "server_ipv6": "[::]",
     "server_port":8388,
     "local_address": "127.0.0.1",
     "local_port":1080,
     "password":"m",
     "timeout":300,
-    "method":"rc4-md5"
+    "method":"aes-256-cfb"
 }
 ```
 #### 2.6 开启服务
