@@ -192,4 +192,4 @@ THX
 * [CENTOS下SHADOWSOCKS多用户后端MANYUSER+前端SSPANEL搭建过程](http://www.cmsky.com/shadowsocks-manyuser-sspanel/)
 * [详细说下shadowsocks服务端的部署](http://www.bigf.info/makediess-manyuser-config-diy)
 * [用 Supervisor 运行 Shadowsocks](https://github.com/shadowsocks/shadowsocks/wiki/%E7%94%A8-Supervisor-%E8%BF%90%E8%A1%8C-Shadowsocks/9b73d02b379470f56d55aa01da7f7cd9b29f6d50)
-* CENTOS下SHADOWSOCKS多用户后端MANYUSER+前端SSPANEL搭建过程  
+* [shadowsocks前端管理面板ss-panel详细配置及修改图文教程](http://www.bigf.info/ss-panel-config-diy) 
