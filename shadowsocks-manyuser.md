@@ -180,8 +180,8 @@ $arr_server = array(
 
 最后是reg.php里面修改邀请码,默认v2ex  
 最后将sql.sql导入到你新建的数据库中，你也可以在导入前先作适当的修改，参考下图
-
-
+![sql](https://pic.honeyhaw.com/images/sql.jpg)
+默认用户名test@test.com，密码10010  
 
 
 ***
