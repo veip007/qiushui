@@ -101,65 +101,51 @@ screen -dmS Shadowsocks python server.py
 （`screen -dmS Shadowsocks python server.py`，也就是让程序运行后就在后台了。）  
 至此多用户SS后端安装完毕。  
 ##### 2.6.2 使用supervisor进程守护的方法
-###### 2.6.2.1 debian使用supervisor进程守护的方法  
-安装supervisor `apt-get install supervisor`  
-配置supervisor进程守护  
-在目录/etc/supervisor/conf.d/下， 新建一个文件，名字：shadowsocks.conf  
-在shadowsocks.conf文件里编辑添加：  
+Supervisor是一个C/S系统,它可以在类UNIX系统上控制系统进程，由python编写，它提供了大量的功能来实现对进程的管理。  
+安装  
+```
+pip
+pip install supervisor
+
+easy_install
+easy_install supervisor
+
+apt-get (Debian/Ubuntu)
+apt-get update
+apt-get install supervisor
+
+yum (Centos)
+yum install supervisor
+```
+编辑 `/etc/supervisor/conf.d/shadowsocks.conf`
 ```
 [program:shadowsocks]
-command=python /shadowsocks/shadowsocks/server.py -c /shadowsocks/shadowsocks/config.json #/此处目录请自行修改
-autorestart=true
-user=root
-```
-修改以下文件  
-```
-vi /etc/profile  
-vi /etc/default/supervisor  
-在文件结尾处添加以下3行内容
-ulimit -n 51200
-ulimit -Sn 4096
-ulimit -Hn 8192
-```
-启动supervisor  
-```
-service supervisor start #启动
-supervisorctl reload #重载
-supervisorctl tail -f shadowsocks stderr #debug查看连接日志等,Ctrl+C 取消查看
-```
-###### 2.6.2.2 centos使用supervisor进程守护的方法  
-安装`easy_install supervisor`  
-运行`echo_supervisord_conf`测试是否安装成功。  
-创建配置文件：`echo_supervisord_conf > /etc/supervisord.conf`  
-修改配置文件：
-在supervisord.conf最后增加：
-```
-[program:shadowsocks]
-command = python /shadowsocks/shadowsocks/server.py -c /shadowsocks/shadowsocks/config.json #/此处目录请自行修改
+command=cd /root/shadowsocks/shadowsocks  python server.py #自己修改对应的路径
 autostart=true
 autorestart=true
-startsecs=3
+user=nobody  #如果端口 < 1024，把 user=nobody 改成 user=root。
 ```
-使用指定配置文件启动：`/usr/bin/supervisord -c /etc/supervisord.conf/`  
--c 表示配置文件的路径，读取这里个配置文件，之前也是可以根据自己的情况放在不同的文件夹下  
-修改配置文件之后：`supervisorctl reload` 重载 服务重新启动  
-debug查看连接日志：`supervisorctl tail -f shadowsocks stderr` #Ctrl+C 取消查看  
-设置supervisord开机启动  
-编辑文件：`vi /etc/rc.local`  
-在末尾另起一行添加`supervisord`  
-supervisorctl常用命令
-控制命令基本都通过supervisorctl执行，输入help可以看到命令列表。这是一些常用命令：
+在 `/etc/default/supervisor` 最后加一行：  
+`ulimit -n 51200`  
+执行  
+```
+service supervisor start
+supervisorctl reload
+```
+你可以检查日志或者控制 Shadowsocks 的运行：  
+```
+supervisorctl tail -f shadowsocks stderr
+supervisorctl restart shadowsocks
+```
+如果更新了 Supervisor 的配置文件（/etc/supervisor.d/*.conf），可以 supervisorctl update 来更新配置。  
+
+常用命令  
 ```
 获得所有程序状态 supervisorctl status
-关闭目标程序 supervisorctl stop spider
-启动目标程序 supervisorctl start spider
+关闭目标程序 supervisorctl stop shadowsocks
+启动目标程序 supervisorctl start shadowsocks
 关闭所有程序 supervisorctl shutdown
 ```
-
-
-
-
-
 
 THX  
 * [How To Install and Secure phpMyAdmin on a CentOS 6.4 VPS](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-a-centos-6-4-vps)  
