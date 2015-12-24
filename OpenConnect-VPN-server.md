@@ -135,6 +135,10 @@ dns = 8.8.4.4
  
 # 启用cisco客户端兼容性支持
 cisco-client-compat = true
+
+#据说可以优化速度
+output-buffer = 23000 
+try-mtu-discovery = true 
 ```
 ### 3.3 测试服务器  
 创建一个登陆用的用户名与密码。 
