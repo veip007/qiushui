@@ -95,6 +95,7 @@ cp server-key.pem /etc/ssl/private/my-server-key.pem
 mkdir /etc/ocserv
 cd ~/ocserv*
 cp doc/sample.config /etc/ocserv/ocserv.conf
+vi /etc/ocserv/ocserv.conf
 ```
 配置文件可以[官方手册](http://www.infradead.org/ocserv/manual.html)手册来写，不过这里我们重点要确保以下条目正确：
 ```
