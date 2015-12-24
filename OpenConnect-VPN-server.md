@@ -39,7 +39,7 @@ make && make install
 
 ***
 
-## 3.配置OpenConnectServer
+## 3. 配置OpenConnectServer
 
 ### 3.1配置证书
 安装证书工具  `apt-get install gnutls-bin`
@@ -60,10 +60,10 @@ signing_key
 cert_signing_key 
 crl_signing_key
 ```
-生成CA密钥
+生成CA密钥		
 `certtool --generate-privkey --outfile ca-key.pem`
 
-生成CA证书
+生成CA证书		
 `certtool --generate-self-signed --load-privkey ca-key.pem --template ca.tmpl --outfile ca-cert.pem`
 
 然后我们生成服务器证书`vi server.tmpl`，这里注意cn项必须对应你服务器的域名或IP，内容如下：
@@ -75,10 +75,10 @@ signing_key
 encryption_key
 tls_www_server
 ```
-生成Server密钥
+生成Server密钥		
 `certtool --generate-privkey --outfile server-key.pem`
 
-生成Server证书
+生成Server证书		
 `certtool --generate-certificate --load-privkey server-key.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem --template server.tmpl --outfile server-cert.pem`
 
 把证书移动到合适的地方：
@@ -194,4 +194,87 @@ ocserv[16104]: main[test]: 60.0.14.48:38135 user logged in
 ```
 好了，目前已经搞定了OpenConnect server，下面讲的是一些优化，创建客户端证书，智能分流  
 
-## 4.优化OpenConnectServer
+## 4. 优化OpenConnectServer
+
+### 4.1 制作启动脚本
+首先，来写个启动脚本——毕竟，不能每次都用调试模式启动不是吗？		
+```
+cd /etc/init.d
+ ln -s /lib/init/upstart-job ocserv
+ 
+cd /etc/init
+vi  ocserv.conf
+```
+在配置文件中写入如下脚本：
+```
+#!upstart
+description "OpenConnect Server"
+ 
+start on runlevel [2345]
+stop on runlevel [06]
+ 
+respawn
+respawn limit 20 5
+ 
+script
+    exec start-stop-daemon --start --pidfile /var/run/ocserv.pid --exec /usr/local/sbin/ocserv -- -f >> /dev/null 2>&1
+end script
+```
+这样，我们就可以使用`service ocserv start`和`service ocserv stop`来控制服务了。		
+### 4.2免密码登录
+创建客户端证书，省的老输入密码		
+```
+cd ~/certificates/
+vi user.tmpl
+```
+写入如下内容：
+```
+cn = "some random name"
+unit = "some random unit"
+expiration_days = 365
+signing_key
+tls_www_client
+```
+生成User密钥			
+`certtool --generate-privkey --outfile user-key.pem`			
+
+生成User证书			
+`certtool --generate-certificate --load-privkey user-key.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem --template user.tmpl --outfile user-cert.pem`		
+
+然后要将证书和密钥转为PKCS12的格式。		
+`certtool --to-p12 --load-privkey user-key.pem --pkcs-cipher 3des-pkcs12 --load-certificate user-cert.pem --outfile user.p12 --outder`
+
+期间会要求你输入证书名字和密码。
+
+然后你需要把这个证书放到一个可以被直接访问的地方，然后通过URL将user.p12文件导入AnyConnect，具体位置在诊断标签页的证书栏目下，导入成功之后，将对应的VPN设置的高级设置部分的证书栏目，改为导入的这张证书。
+
+现在，为了让服务器能够认得这张证书，我们再来修改一下配置：
+```
+vi /etc/ocserv/ocserv.conf
+ 
+# 改为证书登陆，注释掉原来的登陆模式
+auth = "certificate"
+ 
+# 证书认证不支持这个选项，注释掉这行
+#listen-clear-file = /var/run/ocserv-conn.socket
+ 
+# 启用证书验证
+ca-cert = /etc/ssl/private/my-ca-cert.pem
+```
+这样，我们使用`service ocserv start`来启动它即可！		
+
+## 5.智能分流
+1. 编译ocserv前需要修改src/vpn.h来支持超过96行(ocserv默认值)但不超过200行(Cisco AnyConnect最大值)的路由表:
+```
+vi ~/ocserv*/src/vpn.h
+#把96改为200以上
+#define DEFAULT_CONFIG_ENTRIES 96
+```
+2. 修改ocserv配置文件，添加[这些内容](https://github.com/CNMan/ocserv-cn-no-route/blob/master/cn-no-route.txt)
+
+
+参考：		
+http://bitinn.net/11084/		
+https://www.logcg.com/archives/1343.html		
+http://www.fanyueciyuan.info/fq/ocserv-debian.html		
+https://github.com/CNMan/ocserv-cn-no-route		
