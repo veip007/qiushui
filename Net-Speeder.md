@@ -19,6 +19,10 @@ nohup /usr/local/net_speeder/net_speeder venet0 "ip" >/dev/null 2>&1 &
 killall net_speeder
 ```
 
+指定端口加速的方法:  
+比如`net_speeder venet0 "src port 22"`就是针对22号端口流出的数据包加速。  
+加速多个端口：`net_speeder venet0 "src port 22 || 80 || 443"﻿`  
+
 **Debian/Ubuntu 一键安装**  
 ```
 wget --no-check-certificate https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/debian_netspeeder_tennfy.sh
