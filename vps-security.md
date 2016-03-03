@@ -3,7 +3,7 @@
 2、找到#port 22，将前面的#去掉，然后修改端口 port 12345（自己设定）。  
 3、然后重启ssh服务
 ```
-#Debian/ubuntu  /etc/init.d/ssh restart
+#Debian/ubuntu  /etc/init.d/ssh restart   or    service ssh restart
 #CentOS         service sshd restart
 ``` 
 
@@ -37,7 +37,7 @@ PasswordAuthentication no
   
 配置好服务器以后 再次确认 密钥文件是否下载了，否则悲剧了别找我 重启SSH服务器 生效  
 ```
-#Debian/ubuntu  /etc/init.d/ssh restart
+#Debian/ubuntu  /etc/init.d/ssh restart  or  service ssh restart
 #CentOS         service sshd restart
 ``` 
   
