@@ -172,5 +172,5 @@ notes:
 
 ***
 参考  
-https://github.com/shadowsocks/shadowsocks-libev#build-deb-package-from-source  
+https://github.com/shadowsocks/shadowsocks-libev  
 https://cokebar.info/archives/767  
