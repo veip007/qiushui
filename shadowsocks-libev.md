@@ -169,3 +169,8 @@ notes:
 查看shadowsocks是否正确启动并监听相应端口，看到有ss-server进程LISTEN正确的端口就表示成功：  
 `netstat -lnp`  
 
+
+***
+参考  
+https://github.com/shadowsocks/shadowsocks-libev#build-deb-package-from-source  
+https://cokebar.info/archives/767  
