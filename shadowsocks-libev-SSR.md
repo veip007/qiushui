@@ -110,7 +110,7 @@ obfs   | 说明
 "random_head"|发送一个随机包再通讯的协议
 "tls1.0_session_auth"|伪装为tls session握手协议，同时能抗重放攻击
 
-各混淆插件的说明请点击这里查看：[混淆插件说明]
+各混淆插件的说明请点击这里查看：[混淆插件说明](https://github.com/breakwa11/shadowsocks-rss/wiki/obfs)
 
 注：客户端的protocol和obfs配置必须与服务端的一致。
 
