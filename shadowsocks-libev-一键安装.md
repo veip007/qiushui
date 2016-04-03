@@ -1,5 +1,5 @@
 **本脚本适用环境：**   
-系统支持：CentOS 32或64位   
+系统支持：CentOS/Debian/Ubuntu
 内存要求：≥128M   
 日期：2015年08月01日   
 
@@ -18,11 +18,20 @@ http://sourceforge.net/projects/shadowsocksgui/files/dist/
 
 **使用方法：**  
 使用root用户登录，运行以下命令：  
+- CentOS
 ```
-wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh
+wget --no-check-certificate https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/shadowsocks-libev.sh
+chmod +x shadowsocks-libev.sh
 chmod +x shadowsocks-libev.sh
 ./shadowsocks-libev.sh 2>&1 | tee shadowsocks-libev.log
 ```   
+- Debian && Ubuntu
+```
+wget --no-check-certificate https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/shadowsocks-libev-debian.sh
+chmod +x shadowsocks-libev-debian.sh
+./shadowsocks-libev-debian.sh 2>&1 | tee shadowsocks-libev-debian.log
+```
+
 **安装完成后，脚本提示如下：**   
 ```
 Congratulations, shadowsocks-libev install completed!
