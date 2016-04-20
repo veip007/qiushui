@@ -1,4 +1,4 @@
-# shadowsocks libev SSR 服务端安装教程
+# shadowsocksR libev 服务端安装教程
 >版本的特点是内存占用小（600k左右）,低 CPU 消耗,支持SSR海螺特征,甚至可以安装在基于 OpenWRT 的路由器上  
 项目地址https://github.com/breakwa11/shadowsocks-libev
 
