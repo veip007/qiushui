@@ -84,13 +84,16 @@ ln -s /bin/true /sbin/sysctl
 ***
 
 ####1.3 锐速
-锐速是TCP底层加速软件，官方推出永久免费版本，20Mbps宽带、3000加速连接。实测安装以后效果很不错。需要使用的话先到锐速官网注册帐号， 并确认[内核版本](http://dl.serverspeeder.com/ls.do?m=availables)是否支持锐速的版本。  
+锐速是TCP底层加速软件,官方已停止推出永久免费版本,但网上有破解版可以继续使用。需要购买的话先到锐速官网注册帐号,并确认[内核版本](http://dl.serverspeeder.com/ls.do?m=availables)是否支持锐速的版本。  
 
-安装  
+一键安装速锐破解版  
 ```
-wget http://dl.serverspeeder.com/d/ls/serverSpeederInstaller.tar.gz
-tar xzvf serverSpeederInstaller.tar.gz
-bash serverSpeederInstaller.sh
+wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder-all.sh && bash serverspeeder-all.sh
+```
+
+一键卸载
+```
+chattr -i /serverspeeder/etc/apx* && /serverspeeder/bin/serverSpeeder.sh uninstall -f
 ```
 
 设置  
