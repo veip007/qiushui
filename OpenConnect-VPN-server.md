@@ -273,6 +273,11 @@ vi ~/ocserv*/src/vpn.h
 2. 修改ocserv配置文件，添加[这些内容](https://github.com/CNMan/ocserv-cn-no-route/blob/master/cn-no-route.txt)
 
 
+***
+补充:
+一键脚本https://github.com/fanyueciyuan/eazy-for-ss/tree/master/ocservauto  
+注意Anyconnect和速锐一起使用的话,首先要禁止掉udp-port(详细看配置文件) ,接着重启速锐 最后重启Anyconnect  
+
 参考：		
 http://bitinn.net/11084/		
 https://www.logcg.com/archives/1343.html		
