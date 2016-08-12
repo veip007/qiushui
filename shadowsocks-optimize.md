@@ -45,6 +45,8 @@ net.ipv4.tcp_mtu_probing = 1
 
 # for high-latency network
 net.ipv4.tcp_congestion_control = hybla
+# forward ivp4
+net.ipv4.ip_forward = 1
 ```
 保存生效  
 `sysctl -p`  
