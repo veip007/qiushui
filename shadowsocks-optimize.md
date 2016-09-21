@@ -194,7 +194,7 @@ pip install gevent
 Debian/Ubuntu   
 ```
 apt-get install build-essential
-wget wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz
+wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz
 tar xf LATEST.tar.gz && cd libsodium*
 ./configure && make && make install
 ldconfig
