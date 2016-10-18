@@ -61,18 +61,19 @@ net.ipv4.ip_forward = 1
 
 ####1.2 TCP优化  
 1.修改文件句柄数限制  
-
+如果是ubuntu/centos均可修改`/etc/sysctl.conf`  
+找到`fs.file-max`这一行，修改其值为`1024000`，并保存退出。然后执行`sysctl -p`使其生效  
 修改`vi /etc/security/limits.conf`文件，加入  
 ```
-* soft nofile 51200
-* hard nofile 51200
+*               soft    nofile           512000
+*               hard    nofile          1024000
 ```
-修改`vi /etc/pam.d/common-session`文件，加入  
+针对centos,还需要修改`vi /etc/pam.d/common-session`文件，加入  
 `session required pam_limits.so`  
 
-修改`vi /etc/profile`文件，加入  
-`ulimit -SHn 51200`  
-然后重启服务器执行`ulimit -n`，查询返回51200即可。  
+2.修改`vi /etc/profile`文件，加入  
+`ulimit -SHn 1024000`  
+然后重启服务器执行`ulimit -n`，查询返回1024000即可。  
   
 ```
 sysctl.conf报错解决方法
