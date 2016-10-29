@@ -6,7 +6,7 @@
 复制进去   
 ```
 # max open files
-fs.file-max = 51200
+fs.file-max = 1024000
 # max read buffer
 net.core.rmem_max = 67108864
 # max write buffer
