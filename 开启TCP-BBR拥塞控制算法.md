@@ -1,6 +1,6 @@
 BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况,  效果并不比速锐差
 
-最新 Ubuntu4.9-rc8 内核已 tcp_bbr 下面简单讲述如何开启  
+最新 Ubuntu4.9-rc8 内核已支持 tcp_bbr 下面简单讲述如何开启  
 本人已在 Debian8/Ubuntu14 下测试成功  
 
 - 下载最新内核,最新内核查看[这里](http://kernel.ubuntu.com/~kernel-ppa/mainline)  
