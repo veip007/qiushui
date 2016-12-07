@@ -16,7 +16,7 @@ dpkg -i linux-image-4.9.0*.deb
 -  删除其余内核
 ```
 dpkg -l|grep linux-image 
-apt-get pruge 旧内核
+apt-get purge 旧内核
 ```
 
 - 更新 grub 系统引导文件并重启
