@@ -94,5 +94,5 @@ echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 `sysctl net.ipv4.tcp_available_congestion_control`  
 如果结果中有`bbr`, 则证明你的内核已开启bbr  
 执行  
-`lsmod | grep bbr`
+`lsmod | grep bbr`  
 看到有 tcp_bbr 模块即说明bbr已启动  
