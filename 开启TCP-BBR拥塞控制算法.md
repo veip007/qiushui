@@ -85,10 +85,6 @@ reboot
 开机后 `uname -r`  看看是不是内核4.9  
 
 执行  
-`sysctl net.ipv4.tcp_available_congestion_control`  
-如果结果中有`bbr`, 则证明你的内核可开启bbr  
-
-执行  
 ```
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
@@ -97,9 +93,12 @@ echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 保存生效  
 `sysctl -p`  
 
-执行
-`sysctl -n net.ipv4.tcp_congestion_control`  
-如果结果为`bbr`, 则证明你的内核已开启bbr  
+执行  
+```
+sysctl net.ipv4.tcp_available_congestion_control
+sysctl net.ipv4.tcp_congestion_control
+```
+如果结果都有`bbr`, 则证明你的内核已开启bbr  
 
 执行  
 `lsmod | grep bbr`  
