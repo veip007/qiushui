@@ -80,6 +80,7 @@ egrep ^menuentry /etc/grub2.cfg | cut -f 2 -d \'
 grub2-set-default 0  #default 0表示第一个内核设置为默认运行, 选择最新内核就对了
 reboot
 ```
+- 注意，某些服务商（如[Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-update-a-digitalocean-server-s-kernel )）可能需要首先将VPS配置为可自定义内核，然后grub2的配置才会生效。
 
 ## 开启bbr
 开机后 `uname -r`  看看是不是内核4.9  
