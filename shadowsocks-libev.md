@@ -34,7 +34,7 @@ git clone https://github.com/madeye/shadowsocks-libev.git
 从源码编译安装：  
 ```
 cd shadowsocks-libev
-./configure &amp;&amp; make
+./configure && make
 make install
 ```
 
@@ -44,7 +44,7 @@ make install
 apt-get install build-essential autoconf libtool libssl-dev
 git clone https://github.com/madeye/shadowsocks-libev.git
 cd shadowsocks-libev
-./configure &amp;&amp; make
+./configure && make
 make install
 ```
 
