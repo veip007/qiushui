@@ -248,7 +248,7 @@ $System_Config['reg_auto_reset_bandwidth']='100';	// 单位G
 
 此时管理员创建完成
 
-接下来需要对服务器进行计划任务的设置,执行以下命令命令
+接下来需要对服务器进行计划任务的设置, 执行 crontab -e命令, 添加以下五段
 
 ```sh
 30 22 * * * php /home/wwwroot/站点文件夹/xcat sendDiaryMail 
