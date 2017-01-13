@@ -461,9 +461,9 @@ server
 {
 	listen 443 ssl;
 	#listen [::]:443 ssl; #有ipv6的开
-	ssl_certificate /etc/letsencrypt/live/imeiji.xyz/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/imeiji.xyz/privkey.pem;
-	ssl_trusted_certificate /etc/letsencrypt/live/imeiji.xyz/chain.pem;
+	ssl_certificate /etc/letsencrypt/live/你的域名/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/你的域名/privkey.pem;
+	ssl_trusted_certificate /etc/letsencrypt/live/你的域名/chain.pem;
 }
 ```
 
