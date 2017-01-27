@@ -6,7 +6,7 @@ BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况, 效果
 
 - 下载最新内核,最新内核查看[这里](http://kernel.ubuntu.com/~kernel-ppa/mainline)  
 ```
-http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.6/linux-image-4.9.6-040906-generic_4.9.6-040906.201701260330_amd64.deb
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.6/linux-image-4.9.6-040906-generic_4.9.6-040906.201701260330_amd64.deb
 ```
 
 - 安装内核
