@@ -173,12 +173,8 @@ python ez_setup.py install
 安装 gevent可以提高 Shadowsocks 的性能。  
 Debian/Ubuntu  
 ```
-apt-get install python-dev
-apt-get install libevent-dev
-apt-get install python-setuptools
-apt-get install python-gevent
-easy_install greenlet
-easy_install gevent
+apt-get install python-dev libevent-dev python-setuptools python-gevent
+easy_install greenlet gevent
 ```
 
 CentOS  
