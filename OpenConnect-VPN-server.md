@@ -7,7 +7,7 @@ OpenConnet Server（ocserv）是通过实现Cisco的AnyConnect协议，用DTLS�
 
 介绍到此，让我们按步骤干好事情。
 
-（下文选用最新的Ubuntu 14.04 LTS和OCServ 0.10.10作为标准环境）  
+（下文选用最新的Ubuntu 14.04 LTS和OCServ 0.11.6作为标准环境）  
 
 ## 1.配置环境
 ### 1.1安装依赖
@@ -29,9 +29,9 @@ make && make install
 ## 2.编译OCserv
 查看最新版本	http://www.infradead.org/ocserv/download.html
 ```
-wget ftp://ftp.infradead.org/pub/ocserv/ocserv-0.10.10.tar.xz
-tar xvf ocserv-0.10.10.tar.xz
-cd ocserv-0.10.10
+wget ftp://ftp.infradead.org/pub/ocserv/ocserv-0.11.6.tar.xz
+tar xvf ocserv-0.11.6.tar.xz
+cd ocserv-0.11.6
 ./configure 
 make && make install
 ```
