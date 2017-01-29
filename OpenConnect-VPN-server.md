@@ -176,7 +176,7 @@ Parsing plain auth method subconfig using legacy format
 Setting 'plain' as primary authentication method
 listening (TCP) on 0.0.0.0:110...
 listening (UDP) on 0.0.0.0:9000...
-ocserv[16104]: main: initialized ocserv 0.10.8
+ocserv[16104]: main: initialized ocserv 0.11.6
 ocserv[16105]: sec-mod: reading supplemental config from files
 ocserv[16105]: sec-mod: sec-mod initialized (socket: /var/run/ocserv-socket.16104)
 ocserv[16109]: GnuTLS error (at worker-vpn.c:468): A TLS fatal alert has been received.: Unknown certificate
