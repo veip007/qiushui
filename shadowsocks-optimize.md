@@ -131,7 +131,7 @@ w2lQLimit="512 4096" #从 WAN 到 LAN 加速引擎在缓冲池充满和空闲时
 
 启动`/serverspeeder/bin/serverSpeeder.sh start`  
 
-重启锐速`service serverSpeeder restart`  
+重启锐速`/serverspeeder/bin/serverSpeeder.sh restart`  
 
 ***
 
