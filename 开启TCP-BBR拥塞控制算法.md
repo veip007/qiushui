@@ -1,17 +1,17 @@
 BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况, 效果并不比速锐差
 
-最新 4.9 内核已支持 tcp_bbr 下面简单讲述如何开启  
+Linux kernel 4.9 已支持 tcp_bbr 下面简单讲述如何开启  
 
 ## Debian 8 / Ubuntu 14
 
 - 下载最新内核,最新内核查看[这里](http://kernel.ubuntu.com/~kernel-ppa/mainline)  
 ```
-wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9.9/linux-image-4.9.9-040909-generic_4.9.9-040909.201702090333_amd64.deb
+http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10/linux-image-4.10.0-041000-generic_4.10.0-041000.201702191831_amd64.deb
 ```
 
 - 安装内核
 ```
-dpkg -i linux-image-4.9.9*.deb
+dpkg -i linux-image-4.10.0*.deb
 ```
 
 -  删除旧内核(可选)
