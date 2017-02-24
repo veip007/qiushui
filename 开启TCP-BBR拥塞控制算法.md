@@ -6,7 +6,7 @@ Linux kernel 4.9 已支持 tcp_bbr 下面简单讲述如何开启
 
 - 下载最新内核,最新内核查看[这里](http://kernel.ubuntu.com/~kernel-ppa/mainline)  
 ```
-http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10/linux-image-4.10.0-041000-generic_4.10.0-041000.201702191831_amd64.deb
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10/linux-image-4.10.0-041000-generic_4.10.0-041000.201702191831_amd64.deb
 ```
 
 - 安装内核
