@@ -9,12 +9,12 @@ Linux kernel 4.9 已支持 tcp_bbr 下面简单讲述基于KVM架构VPS如何开
 
 - 下载最新内核,最新内核查看[这里](http://kernel.ubuntu.com/~kernel-ppa/mainline)  
 ```
-wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.3/linux-image-4.10.3-041003-generic_4.10.3-041003.201703142331_amd64.deb
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.4/linux-image-4.10.4-041004-generic_4.10.4-041004.201703180831_amd64.deb
 ```
 
 - 安装内核
 ```
-dpkg -i linux-image-4.10.3*.deb
+dpkg -i linux-image-4.10.4*.deb
 ```
 
 -  删除旧内核(可选)
