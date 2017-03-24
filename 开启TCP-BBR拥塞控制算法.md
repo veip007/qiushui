@@ -14,7 +14,7 @@ wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.5/linux-image-4.10.5-04
 
 - 安装内核
 ```
-dpkg -i linux-image-4.10.4*.deb
+dpkg -i linux-image-4.10.5*.deb
 ```
 
 -  删除旧内核(可选)
