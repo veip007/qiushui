@@ -1,6 +1,6 @@
 BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况, 效果并不比速锐差
 
-Linux kernel 4.9 已支持 tcp_bbr 下面简单讲述基于KVM架构VPS如何开启  
+Linux kernel 4.9+ 已支持 tcp_bbr 下面简单讲述基于KVM架构VPS如何开启  
 
 更新:  
 [OpenVZ 架构VPS开启BBR](https://www.91yun.org/archives/4996)
@@ -9,7 +9,7 @@ Linux kernel 4.9 已支持 tcp_bbr 下面简单讲述基于KVM架构VPS如何开
 
 - 下载最新内核,最新内核查看[这里](http://kernel.ubuntu.com/~kernel-ppa/mainline)  
 ```
-wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.6/linux-image-4.10.6-041006-generic_4.10.6-041006.201703260832_amd64.deb
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.9/linux-image-4.10.9-041009-generic_4.10.9-041009.201704080516_amd64.deb
 ```
 
 - 安装内核
@@ -86,7 +86,7 @@ reboot
 - 注意，某些服务商（如[Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-update-a-digitalocean-server-s-kernel )）可能需要首先将VPS配置为可自定义内核，然后grub2的配置才会生效。
 
 ## 开启bbr
-开机后 `uname -r`  看看是不是内核4.9  
+开机后 `uname -r`  看看是不是内核4.9或4.10  
 
 执行  
 ```
