@@ -87,7 +87,7 @@ reboot
 
 重新启动后，如果会出现“read-only file system” 的错误，root账户下执行mount -o remount rw / 即可
 ## 开启bbr
-开机后 `uname -r` 看看是不是内核4.9、4.10或4.11
+开机后 `uname -r` 看看是不是内核4.9、4.10、4.11或4.12
 
 执行 `lsmod | grep bbr`，如果结果中没有 `tcp_bbr` 的话就先执行
 ```
