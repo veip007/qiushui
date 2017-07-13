@@ -2,6 +2,9 @@ BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况, 效果
 
 Linux kernel 4.9+ 已支持 tcp_bbr 下面简单讲述基于KVM架构VPS如何开启  
 
+更新:  
+[OpenVZ 架构VPS开启BBR](https://www.91yun.org/archives/4996)
+
 ## Debian 8 / Ubuntu 14
 
 - 下载最新内核,最新内核查看[这里](http://kernel.ubuntu.com/~kernel-ppa/mainline)  
