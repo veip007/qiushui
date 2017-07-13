@@ -2,8 +2,9 @@ BBR 目的是要尽量跑满带宽, 并且尽量不要有排队的情况, 效果
 
 Linux kernel 4.9+ 已支持 tcp_bbr 下面简单讲述基于KVM架构VPS如何开启  
 
-更新:  
-[OpenVZ 架构VPS开启BBR](https://www.91yun.org/archives/4996)
+附:  
+[OpenVZ 架构VPS开启BBR](https://www.91yun.org/archives/4996)  
+[Debian/Ubuntu TCP BBR 魔改版](https://moeclub.org/2017/06/24/278/)
 
 ## Debian 8 / Ubuntu 14
 
@@ -87,7 +88,7 @@ reboot
 
 重新启动后，如果会出现“read-only file system” 的错误，root账户下执行mount -o remount rw / 即可
 ## 开启bbr
-开机后 `uname -r` 看看是不是内核4.9、4.10、4.11或4.12
+开机后 `uname -r` 看看是不是内核 >= 4.9  
 
 执行 `lsmod | grep bbr`，如果结果中没有 `tcp_bbr` 的话就先执行
 ```
