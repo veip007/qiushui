@@ -77,7 +77,7 @@ cpan>install DBI
 //安装完成后退出cpan
 cpan>quit
 # 再安装其它组件
-apt install freeradius freeradius-mysql freeradius-utils
+apt-get install freeradius freeradius-mysql freeradius-utils
 ```
 
 5.配置数据库
