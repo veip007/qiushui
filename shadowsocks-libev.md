@@ -99,12 +99,14 @@ method：加密方式 默认为table,其他有rc4,rc4-md5,aes-128-cfb, aes-192-c
 
 Ubuntu/Debian 通过deb包安装的（deb包安装的默认会开启自启）：  
 `service shadowsocks-libev restart`  
+ 
 CentOS，拷贝启动脚本shadowsocks-libev到/etc/init.d/目录下后，启动：  
 `/etc/init.d/shadowsocks-libev start`  
+ 
 ArchLinux，假设配置文件为，`/etc/shadowsocks/foo.json` 启动：  
-`sudo systemctl start shadowsocks-libev@foo.service`  
+`sudo systemctl start shadowsocks-libev-server@foo`  
 设置开机自启动：  
-`sudo systemctl enable shadowsocks-libev@foo.service`
+`sudo systemctl enable shadowsocks-libev-server@foo` 
 
 或者直接调用ss-server命令运行，具体用法如下：
 ```
