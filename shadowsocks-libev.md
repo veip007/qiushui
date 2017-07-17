@@ -68,10 +68,15 @@ apt-get update
 apt-get install shadowsocks-libev
 ```
 
+## 1.3 从官方仓库中安装（ArchLinux）
+```
+sudo pacman -S shadowsocks-libev
+```
+
 # 2.配置与启动
 
 ## 2.1配置文件
-编辑 `/etc/shadowsocks-libev/config.json`，格式说明：  
+编辑 `/etc/shadowsocks-libev/config.json`（ArchLinux用户建议放在`/etc/shadowsocks`目录下），格式说明：  
 ```
 {
 	"server":"example.com or X.X.X.X",
@@ -96,6 +101,10 @@ Ubuntu/Debian 通过deb包安装的（deb包安装的默认会开启自启）：
 `service shadowsocks-libev restart`  
 CentOS，拷贝启动脚本shadowsocks-libev到/etc/init.d/目录下后，启动：  
 `/etc/init.d/shadowsocks-libev start`  
+ArchLinux，假设配置文件为，`/etc/shadowsocks/foo.json` 启动：  
+`sudo systemctl start shadowsocks-libev@foo.service`  
+设置开机自启动：  
+`sudo systemctl enable shadowsocks-libev@foo.service`
 
 或者直接调用ss-server命令运行，具体用法如下：
 ```
@@ -174,3 +183,4 @@ notes:
 参考  
 https://github.com/shadowsocks/shadowsocks-libev  
 https://cokebar.info/archives/767  
+https://wiki.archlinux.org/index.php/Shadowsocks_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
