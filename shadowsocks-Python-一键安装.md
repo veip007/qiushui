@@ -1,26 +1,26 @@
 **本脚本适用环境：**  
 系统支持：CentOS 6，7，Debian，Ubuntu  
 内存要求：≥128M  
-日期：2015年08月28日  
-
+日期：2017 年 07 月 28 日  
 
 **关于本脚本：**  
-一键安装 Python 版 shadowsocks 的最新版，同时安装了 Python 包管理工具 pip。  
+一键安装 Python 版 shadowsocks 的最新版。  
 
 
 **默认配置：**   
-服务器端口：自己设定（如不设定，默认为8989）   
-客户端端口：1080    
-密码：自己设定（如不设定，默认为teddysun.com）     
-备注：脚本默认创建单用户配置文件，如需配置多用户，安装完毕后参照下面的教程 sample 手动修改配置文件后重启即可。    
-
+服务器端口：自己设定（如不设定，默认为 8989）  
+密码：自己设定（如不设定，默认为 teddysun.com）  
+加密方式：自己设定（如不设定，默认为 aes-256-gcm）  
+备注：脚本默认创建单用户配置文件，如需配置多用户，安装完毕后参照下面的教程示例手动修改配置文件后重启即可。  
+ 
 **客户端下载：**   
-http://sourceforge.net/projects/shadowsocksgui/files/dist/   
+[Windows](https://github.com/shadowsocks/shadowsocks-windows/releases)  
+[Android](https://github.com/shadowsocks/shadowsocks-android/releases)
 
 **使用方法：**    
 使用root用户登录，运行以下命令：   
 ```
-wget --no-check-certificate https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/shadowsocks.sh
+wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
 chmod +x shadowsocks.sh
 ./shadowsocks.sh 2>&1 | tee shadowsocks.log
 ```
@@ -138,5 +138,5 @@ netstat -anp | egrep $regex | grep -E "tcp.*ESTABLISHED" | awk '{print $4, $5}' 
 
 
 参考链接：  
-http://teddysun.com/339.html   
+https://shadowsocks.be/1.html  
 http://everet.org/shadowsocks.html
