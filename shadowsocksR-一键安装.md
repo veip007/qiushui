@@ -1,47 +1,41 @@
 **本脚本适用环境：**  
 系统支持：CentOS，Debian，Ubuntu  
 内存要求：≥128M  
-日期：2016 年 01 月 06 日  
+日期：2017 年 07 月 28 日
 
 **关于本脚本：**  
 一键安装 ShadowsocksR 服务端。  
-请下载与之配套的客户端程序来连接。  
-（以下客户端只有 [Windows 客户端](https://github.com/breakwa11/shadowsocks-csharp/releases)和 [Python 版客户端](https://github.com/breakwa11/shadowsocks-rss/wiki/Python-client)可以使用 SSR 新特性，其他原版客户端只能以兼容的方式连接 SSR 服务器）  
+[ShadowsocksR 协议插件文档](https://github.com/iMeiji/shadowsocks_install/blob/master/shadowsocksR-wiki/ShadowsocksR%20%E5%8D%8F%E8%AE%AE%E6%8F%92%E4%BB%B6%E6%96%87%E6%A1%A3.md)  
 
 **默认配置：**  
 服务器端口：自己设定（如不设定，默认为 8989）  
-客户端端口：1080  
-密码：自己设定（如不设定，默认为teddysun.com）  
+密码：自己设定（如不设定，默认为 teddysun.com）  
+加密方式：自己设定（如不设定，默认为 aes-256-cfb）  
+协议（Protocol）：自己设定（如不设定，默认为 origin）  
+混淆（obfs）：自己设定（如不设定，默认为 plain）  
 
 **客户端下载：**  
-[Windows](https://github.com/breakwa11/shadowsocks-csharp/releases) / [OS X](https://github.com/shadowsocks/shadowsocks-iOS/wiki/Shadowsocks-for-OSX-Help)  
-[Linux](https://github.com/librehat/shadowsocks-qt5)  
-[Android](https://github.com/shadowsocks/shadowsocks-android) / [iOS](https://github.com/shadowsocks/shadowsocks-iOS/wiki/Help)  
-[OpenWRT](https://github.com/shadowsocks/openwrt-shadowsocks)  
+https://github.com/iMeiji/shadowsocks_install/releases/tag/0.13
 
 **使用方法：**  
 使用root用户登录，运行以下命令：
 ```
-wget --no-check-certificate https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/shadowsocksR.sh
+wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh
 chmod +x shadowsocksR.sh
 ./shadowsocksR.sh 2>&1 | tee shadowsocksR.log
 ```
 
 **安装完成后，脚本提示如下：**
 ```
-Congratulations, ShadowsocksR install completed!
-Server IP:your_server_ip
-Server Port:your_server_port
-Password:your_password
-Local IP:127.0.0.1
-Local Port:1080
-Protocol:origin
-obfs:plain
-Encryption Method:aes-256-cfb
+Congratulations, ShadowsocksR server install completed!
+Your Server IP        :your_server_ip
+Your Server Port      :your_server_port
+Your Password         :your_password
+Your Protocol         :your_protocol
+Your obfs             :your_obfs
+Your Encryption Method:your_encryption_method
 
->Welcome to visit:https://shadowsocks.be/9.html
-If you want to change protocol & obfs, reference URL:
-https://github.com/breakwa11/shadowsocks-rss/wiki/Server-Setup
+Welcome to visit:https://shadowsocks.be/9.html
 Enjoy it!
 ```
 
@@ -60,9 +54,10 @@ Enjoy it!
 
 配置文件路径：`/etc/shadowsocks.json`  
 日志文件路径：`/var/log/shadowsocks.log`  
+代码安装目录：`/usr/local/shadowsocks`  
 
 **如果你想修改配置文件，请参考：**  
-https://github.com/breakwa11/shadowsocks-rss/wiki/Server-Setup
+https://github.com/iMeiji/shadowsocks_install/blob/master/shadowsocksR-wiki/config.json.md  
 
 **注意事项：**  
 本脚本没有对防火墙（IPv4 是 iptables，IPv6 是 ip6tables）进行任何设置。  
