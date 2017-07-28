@@ -59,7 +59,7 @@ net.ipv4.ip_forward = 1
 
 ***
 
-####1.2 TCP优化  
+#### 1.2 TCP优化  
 1.修改文件句柄数限制  
 如果是ubuntu/centos均可修改`/etc/sysctl.conf`  
 找到`fs.file-max`这一行，修改其值为`1024000`，并保存退出。然后执行`sysctl -p`使其生效  
@@ -86,12 +86,12 @@ ln -s /bin/true /sbin/sysctl
 ```
 ***
 
-####1.3 锐速
+#### 1.3 锐速
 锐速是TCP底层加速软件,官方已停止推出永久免费版本,但网上有破解版可以继续使用。需要购买的话先到锐速官网注册帐号,并确认[内核版本](http://dl.serverspeeder.com/ls.do?m=availables)是否支持锐速的版本。  
 
 一键安装速锐破解版  
 ```
-wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder-all.sh && bash serverspeeder-all.sh
+wget -N --no-check-certificate https://github.com/91yun/serverspeeder/raw/master/serverspeeder.sh && bash serverspeeder.sh
 ```
 
 一键卸载
@@ -136,7 +136,7 @@ w2lQLimit="512 4096" #从 WAN 到 LAN 加速引擎在缓冲池充满和空闲时
 ***
 
 
-####1.4 开启TCP Fast Open
+#### 1.4 开启TCP Fast Open
 这个需要服务器和客户端都是Linux 3.7+的内核，一般Linux的服务器发行版只有debian jessie有3.7+的，客户端用Linux更是珍稀动物，所以这个不多说，如果你的服务器端和客户端都是Linux 3.7+的内核，那就在服务端和客户端的`vi /etc/sysctl.conf`文件中再加上一行。    
 ```
 # turn on TCP Fast Open on both client and server side
@@ -169,7 +169,7 @@ python ez_setup.py install
 或者`pip install M2Crypto --upgrade`  
 ***
 
-####2.2 安装 gevent
+#### 2.2 安装 gevent
 安装 gevent可以提高 Shadowsocks 的性能。  
 Debian/Ubuntu  
 ```
@@ -186,7 +186,7 @@ pip install gevent
 
 ***
 
-####2.3 使用CHACHA20加密算法
+#### 2.3 使用CHACHA20加密算法
 首先，安装libsodium，让系统支持chacha20算法。  
 Debian/Ubuntu   
 ```
@@ -223,7 +223,7 @@ ldconfig
 此外，选择合适的端口也能优化梯子的速度，广大SS用户的实践经验表明，检查站（GFW）存在一种机制来降低自身的运算压力，即常用的协议端口（如http，smtp，ssh，https，ftp等）的检查较少，所以建议SS绑定这些常用的端口（如：21，22，25，80，443），速度也会有显著提升。  
 如果你还要给小伙伴爬，那我建议开启多个端口而不是共用，这样网络会更加顺畅。  
 
-####3.1 防火墙设置（如有）
+#### 3.1 防火墙设置（如有）
 自动调整MTU  
 `iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu`  
 
