@@ -55,8 +55,8 @@ rpm -ev 旧内核
 sed -i 's:default=.*:default=0:g' /etc/grub.conf
 reboot
 ```
-开不了机的打开vps后台控制面板的vnc, 开机卡在 grub 引导, 只需要手动选择内核就可以了
-
+<del>开不了机的打开vps后台控制面板的vnc, 开机卡在 grub 引导, 只需要手动选择内核就可以了<del>
+安装完成后不要忘记修改/boot/grub/menu.lst和/etc/grub.conf，将这两个文件中旧内核的启动项删除即可避免无法重启的问题。
 
 ## CentOS 7
 
