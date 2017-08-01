@@ -36,7 +36,7 @@ reboot
 最新内核查看[这里](http://elrepo.org/linux/kernel/el6/x86_64/RPMS/)
 ```
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-rpm -Uvh http://www.elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm
+rpm -Uvh http://www.elrepo.org/elrepo-release-6-8.el6.elrepo.noarch.rpm
 yum --enablerepo=elrepo-kernel install kernel-ml -y
 ```
 
@@ -64,7 +64,7 @@ reboot
 最新内核查看[这里](http://elrepo.org/linux/kernel/el7/x86_64/RPMS/)
 ```
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
+rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
 yum --enablerepo=elrepo-kernel install kernel-ml -y
 ```
 
