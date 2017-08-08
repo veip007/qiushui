@@ -2,11 +2,15 @@
 
 
 
-前端使用赵大的魔改版 https://github.com/esdeathlove/ss-panel-v3-mod
+前端使用赵大的魔改版(master分支版本) https://github.com/esdeathlove/ss-panel-v3-mod
 
 后端也使用赵大的魔改版 https://github.com/esdeathlove/shadowsocks
 
 演示环境 : VirMach 512RAM机子 Ubuntu 14 x64
+
+附:  
+[搭建 sspanel v3 魔改版new_master分支记录](https://github.com/iMeiji/ss-panel-v3-mod/wiki/%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E-lnmp1.4)  
+[从master分支升级到new_master分支](https://github.com/iMeiji/ss-panel-v3-mod/wiki/%E4%BB%8Emaster%E5%88%86%E6%94%AF%E5%8D%87%E7%BA%A7%E5%88%B0new_master%E5%88%86%E6%94%AF)  
 
 ## 安装前端
 
@@ -54,7 +58,7 @@ location /
 ```sh
 cd /home/wwwroot/你的域名
 apt-get install git -y
-git clone https://github.com/glzjin/ss-panel-v3-mod.git tmp && mv tmp/.git . && rm -rf tmp && git reset --hard
+git clone -b master https://github.com/glzjin/ss-panel-v3-mod.git tmp && mv tmp/.git . && rm -rf tmp && git reset --hard
 chown -R root:root *
 chmod -R 755 *
 chown -R www:www storage
