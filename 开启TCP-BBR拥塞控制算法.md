@@ -59,6 +59,11 @@ reboot
 
 安装完成后不要忘记修改/boot/grub/menu.lst和/etc/grub.conf，将这两个文件中旧内核的启动项删除即可避免无法重启的问题。
 
+- 更新到最新版内核 
+```
+yum --enablerepo=elrepo-kernel update -y 
+```
+
 ## CentOS 7
 
 - 下载更换内核  
@@ -88,6 +93,11 @@ reboot
 - 注意，某些服务商（如[Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-update-a-digitalocean-server-s-kernel )）可能需要首先将VPS配置为可自定义内核，然后grub2的配置才会生效。
 
 重新启动后，如果会出现“read-only file system” 的错误，root账户下执行mount -o remount rw / 即可
+
+- 更新到最新版内核 
+
+方法同CentOS 6
+
 ## 开启bbr
 开机后 `uname -r` 看看是不是内核 >= 4.9  
 
