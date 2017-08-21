@@ -21,7 +21,7 @@ dpkg -i linux-image-4.*.deb
 
 -  删除旧内核(可选)
 ```
-dpkg -l|grep linux-image 
+dpkg -l | grep linux-image 
 apt-get purge 旧内核
 ```
 
