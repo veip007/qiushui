@@ -93,7 +93,7 @@ reboot
 ```
 - 注意，某些服务商（如 [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-update-a-digitalocean-server-s-kernel )）可能需要首先将 VPS 配置为可自定义内核，然后 grub2 的配置才会生效。
 
-重新启动后，如果会出现 "read-only file system" 的错误，root账户下执行 ```mount -o remount rw /``` 即可
+重新启动后，如果会出现 "read-only file system" 的错误，root账户下执行 `mount -o remount rw /` 即可
 
 - 更新到最新版内核 
 
@@ -122,6 +122,6 @@ echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl net.ipv4.tcp_available_congestion_control
 sysctl net.ipv4.tcp_congestion_control
 ```
-如果结果都有`bbr`, 则证明你的内核已开启 bbr  
+如果结果都有 `bbr`, 则证明你的内核已开启 bbr  
 
-执行 `lsmod | grep bbr` 看到有 tcp_bbr 模块即说明 bbr 已启动  
+执行 `lsmod | grep bbr`, 看到有 tcp_bbr 模块即说明 bbr 已启动  
