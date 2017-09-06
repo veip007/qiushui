@@ -56,9 +56,9 @@ rpm -ev 旧内核
 sed -i 's:default=.*:default=0:g' /etc/grub.conf
 reboot
 ```
-<del>开不了机的打开vps后台控制面板的vnc, 开机卡在 grub 引导, 只需要手动选择内核就可以了<del>
+<del>开不了机的打开 vps 后台控制面板的 vnc, 开机卡在 grub 引导, 只需要手动选择内核就可以了<del>
 
-安装完成后不要忘记修改/boot/grub/menu.lst和/etc/grub.conf，将这两个文件中旧内核的启动项删除即可避免无法重启的问题。
+安装完成后不要忘记修改 /boot/grub/menu.lst 和 /etc/grub.conf，将这两个文件中旧内核的启动项删除即可避免无法重启的问题。
 
 - 更新到最新版内核 
 ```
@@ -88,16 +88,16 @@ rpm -ev 旧内核
 - 更新 grub 系统引导文件并重启
 ```
 egrep ^menuentry /etc/grub2.cfg | cut -f 2 -d \'
-grub2-set-default 0  #default 0表示第一个内核设置为默认运行, 选择最新内核就对了
+grub2-set-default 0  # default 0 表示第一个内核设置为默认运行, 选择最新内核就对了
 reboot
 ```
-- 注意，某些服务商（如[Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-update-a-digitalocean-server-s-kernel )）可能需要首先将VPS配置为可自定义内核，然后grub2的配置才会生效。
+- 注意，某些服务商（如 [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-update-a-digitalocean-server-s-kernel )）可能需要首先将 VPS 配置为可自定义内核，然后 grub2 的配置才会生效。
 
-重新启动后，如果会出现“read-only file system” 的错误，root账户下执行mount -o remount rw / 即可
+重新启动后，如果会出现 "read-only file system" 的错误，root账户下执行 ```mount -o remount rw /``` 即可
 
 - 更新到最新版内核 
 
-方法同CentOS 6
+方法同 CentOS 6
 
 ## 开启bbr
 开机后 `uname -r` 看看是不是内核 >= 4.9  
@@ -122,6 +122,6 @@ echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl net.ipv4.tcp_available_congestion_control
 sysctl net.ipv4.tcp_congestion_control
 ```
-如果结果都有`bbr`, 则证明你的内核已开启bbr  
+如果结果都有`bbr`, 则证明你的内核已开启 bbr  
 
-看到有 tcp_bbr 模块即说明bbr已启动  
+执行 `lsmod | grep bbr` 看到有 tcp_bbr 模块即说明 bbr 已启动  
