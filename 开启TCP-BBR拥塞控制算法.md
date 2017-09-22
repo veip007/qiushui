@@ -63,6 +63,7 @@ reboot
 - 更新到最新版内核 
 ```
 yum --enablerepo=elrepo-kernel update -y 
+reboot
 ```
 
 ## CentOS 7
