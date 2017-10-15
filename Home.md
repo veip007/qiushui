@@ -53,7 +53,7 @@ Enjoy it!
 状态：`/etc/init.d/shadowsocks status`  
 
 配置文件路径：`/etc/shadowsocks.json`  
-日志文件路径：`/var/log/shadowsocks.log`  
+日志文件路径：`/var/log/shadowsocksr.log`  
 代码安装目录：`/usr/local/shadowsocks`  
 
 **如果你想修改配置文件，请参考：**  
