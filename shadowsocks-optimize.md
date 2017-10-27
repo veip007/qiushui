@@ -169,23 +169,6 @@ python ez_setup.py install
 或者`pip install M2Crypto --upgrade`  
 ***
 
-#### 2.2 安装 gevent
-安装 gevent可以提高 Shadowsocks 的性能。  
-Debian/Ubuntu  
-```
-apt-get install python-dev libevent-dev python-setuptools python-gevent
-easy_install greenlet gevent
-```
-
-CentOS  
-```
-yum install -y libevent
-pip install greenlet
-pip install gevent
-```
-
-***
-
 #### 2.3 使用CHACHA20加密算法
 首先，安装libsodium，让系统支持chacha20算法。  
 Debian/Ubuntu   
