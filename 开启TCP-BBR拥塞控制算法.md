@@ -31,6 +31,13 @@ update-grub
 reboot
 ```
 
+## Ubuntu 16.04
+
+安装 Hardware Enablement Stack (HWE)，自动更新内核
+```
+sudo apt install --install-recommends linux-generic-hwe-16.04
+```
+
 ## CentOS 6
 
 - 下载更换内核  
