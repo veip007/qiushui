@@ -35,7 +35,12 @@ reboot
 
 安装 Hardware Enablement Stack (HWE)，自动更新内核
 ```
-sudo apt install --install-recommends linux-generic-hwe-16.04
+apt install --install-recommends linux-generic-hwe-16.04
+```
+
+-  删除旧内核(可选)
+```
+apt autoremove
 ```
 
 ## CentOS 6
