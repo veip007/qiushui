@@ -126,7 +126,7 @@
                "network": "ws",
                "wsSettings": {
                    "connectionReuse": false,
-                   "path": "/v2ray/"
+                   "path": "/phpmyadmin/"
                }
            }
        },
@@ -203,7 +203,7 @@
          "kcpSettings": null,
          "wsSettings": {
            "connectionReuse": true,
-           "path": "/v2ray/",
+           "path": "/phpmyadmin/",
            "headers": null
          }
        },
@@ -294,15 +294,19 @@
    ```
    cd /usr/local/nginx/conf/vhost/
    # 修改网站的.conf
-   # 在 server 内插入以下内容
+   # 在 server 内插入以下内容，同时开启 error_page 
 
-   location /v2ray/ {
+   location /phpmyadmin/ {
              proxy_redirect off;
-             proxy_pass http://127.0.0.1:10000;
+             #proxy_pass http://127.0.0.1:10000;
              proxy_http_version 1.1;
              proxy_set_header Upgrade $http_upgrade;
              proxy_set_header Connection "upgrade";
              proxy_set_header Host $http_host;
+             proxy_intercept_errors on;
+             if ($http_upgrade = "websocket" ){
+                proxy_pass http://127.0.0.1:10000;
+             }
            }
    ```
 
