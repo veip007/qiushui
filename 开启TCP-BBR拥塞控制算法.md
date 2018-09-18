@@ -118,13 +118,13 @@ reboot
 执行 `lsmod | grep bbr`，如果结果中没有 `tcp_bbr` 的话就先执行
 ```
 modprobe tcp_bbr
-echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
+echo "tcp_bbr" | sudo tee --append /etc/modules-load.d/modules.conf
 ```
 
 执行
 ```
-echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+echo "net.core.default_qdisc=fq" | sudo tee --append /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" | sudo tee --append /etc/sysctl.conf
 ```
 
 保存生效  
