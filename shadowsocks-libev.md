@@ -34,8 +34,9 @@ git clone https://github.com/madeye/shadowsocks-libev.git
 从源码编译安装：  
 ```
 cd shadowsocks-libev
-./configure && make
-make install
+# Start building
+./autogen.sh && ./configure && make
+sudo make install
 ```
 
 ### Other:
