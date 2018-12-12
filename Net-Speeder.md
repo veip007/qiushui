@@ -4,7 +4,7 @@ Github 地址：[net-speeder](https://github.com/snooda/net-speeder)
 
 **CentOS一键安装**  
 ```
-wget --no-check-certificate https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/net_speeder_lazyinstall.sh
+wget --no-check-certificate https://raw.githubusercontent.com/veip007/shadowsocks_install/master/net_speeder_lazyinstall.sh
 sh net_speeder_lazyinstall.sh
 ```
 
@@ -25,7 +25,7 @@ killall net_speeder
 
 **Debian/Ubuntu 一键安装**  
 ```
-wget --no-check-certificate https://raw.githubusercontent.com/iMeiji/shadowsocks_install/master/debian_netspeeder_tennfy.sh
+wget --no-check-certificate https://raw.githubusercontent.com/veip007/shadowsocks_install/master/debian_netspeeder_tennfy.sh
 chmod a+x debian_netspeeder_tennfy.sh
 bash debian_netspeeder_tennfy.sh
 ```
