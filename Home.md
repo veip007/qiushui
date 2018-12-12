@@ -5,7 +5,7 @@
 
 **关于本脚本：**  
 一键安装 ShadowsocksR 服务端。  
-[ShadowsocksR 协议插件文档](https://github.com/iMeiji/shadowsocks_install/blob/master/shadowsocksR-wiki/ShadowsocksR%20%E5%8D%8F%E8%AE%AE%E6%8F%92%E4%BB%B6%E6%96%87%E6%A1%A3.md)  
+[ShadowsocksR 协议插件文档](https://github.com/veip007/shadowsocks_install/blob/master/shadowsocksR-wiki/ShadowsocksR%20%E5%8D%8F%E8%AE%AE%E6%8F%92%E4%BB%B6%E6%96%87%E6%A1%A3.md)  
 
 **默认配置：**  
 服务器端口：自己设定（如不设定，默认为 8989）  
@@ -15,7 +15,7 @@
 混淆（obfs）：自己设定（如不设定，默认为 plain）  
 
 **客户端下载：**  
-https://github.com/iMeiji/shadowsocks_install/releases/tag/0.13
+https://github.com/veip007/shadowsocks_install/releases/tag/0.13
 
 **使用方法：**  
 使用root用户登录，运行以下命令：
@@ -57,7 +57,7 @@ Enjoy it!
 代码安装目录：`/usr/local/shadowsocks`  
 
 **如果你想修改配置文件，请参考：**  
-https://github.com/iMeiji/shadowsocks_install/blob/master/shadowsocksR-wiki/config.json.md  
+https://github.com/veip007/shadowsocks_install/blob/master/shadowsocksR-wiki/config.json.md  
 
 **注意事项：**  
 本脚本没有对防火墙（IPv4 是 iptables，IPv6 是 ip6tables）进行任何设置。  
